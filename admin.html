@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MediConnect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <h2>MediConnect</h2>
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </header>
+
+    <div class="dashboard-container">
+
+        <h1>Admin Dashboard</h1>
+
+        <div class="stats-row">
+            <div class="stats-card"><h3>Total Patients</h3><p id="totalPatients">0</p></div>
+            <div class="stats-card"><h3>Total Doctors</h3><p id="totalDoctors">0</p></div>
+            <div class="stats-card"><h3>Total Appointments</h3><p id="totalAppointments">0</p></div>
+            <div class="stats-card"><h3>Today's Appointments</h3><p id="todayAppointments">0</p></div>
+        </div>
+
+        <h2>Today's Schedule</h2>
+        <table>
+            <thead>
+                <tr><th>Doctor</th><th>Specialty</th><th>Booked</th><th>Free Slots</th><th>Utilisation</th></tr>
+            </thead>
+            <tbody id="scheduleBody"></tbody>
+        </table>
+
+        <h2>Appointments</h2>
+        <div class="add-form">
+            <input type="date" id="filterDate" title="Filter by date">
+            <select id="filterStatus">
+                <option value="">All statuses</option>
+                <option>Booked</option>
+                <option>Confirmed</option>
+                <option>Completed</option>
+                <option>Cancelled</option>
+            </select>
+            <button type="button" id="clearFilters">Clear filters</button>
+        </div>
+        <table>
+            <thead>
+                <tr><th>ID</th><th>Patient</th><th>Doctor</th><th>Date</th><th>Time</th><th>Type</th><th>Status</th><th>Action</th></tr>
+            </thead>
+            <tbody id="appointmentBody"></tbody>
+        </table>
+
+        <h2>Doctors</h2>
+        <form id="doctorForm" class="add-form">
+            <input type="text" id="doctorName" placeholder="Doctor name (Dr. ...)">
+            <input type="text" id="doctorSpecialty" placeholder="Specialty">
+            <input type="number" id="doctorExperience" placeholder="Experience (years)" min="0">
+            <input type="number" id="doctorFee" placeholder="Fee (₹)" min="0">
+            <button type="submit">Add Doctor</button>
+        </form>
+        <table>
+            <thead>
+                <tr><th>ID</th><th>Name</th><th>Specialty</th><th>Experience</th><th>Fee</th><th>Action</th></tr>
+            </thead>
+            <tbody id="doctorBody"></tbody>
+        </table>
+
+        <h2>Registered Users and Records</h2>
+        <table>
+            <thead>
+                <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Blood Group</th><th>Allergies</th></tr>
+            </thead>
+            <tbody id="userBody"></tbody>
+        </table>
+
+    </div>
+
+<script src="data.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

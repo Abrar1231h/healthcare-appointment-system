@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - MediConnect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <h2>MediConnect</h2>
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </header>
+
+    <div class="user-container">
+
+        <h1>Patient Dashboard</h1>
+
+        <div id="reminders" class="reminder-box" hidden></div>
+
+        <div class="profile-card">
+            <h2>My Profile</h2>
+            <div class="profile-item"><strong>ID :</strong> <span id="userId"></span></div>
+            <div class="profile-item"><strong>Name :</strong> <span id="userName"></span></div>
+            <div class="profile-item"><strong>Email :</strong> <span id="userEmail"></span></div>
+            <div class="profile-item"><strong>Phone :</strong> <span id="userPhone"></span></div>
+            <div class="profile-item"><strong>Role :</strong> <span id="userRole"></span></div>
+        </div>
+
+        <h2 class="section-title" id="bookTitle">Book an Appointment</h2>
+        <form id="bookForm" class="add-form">
+            <select id="doctorSelect" required></select>
+            <input type="date" id="dateInput" required>
+            <select id="timeSelect" required></select>
+            <select id="typeSelect">
+                <option>In-clinic</option>
+                <option>Virtual</option>
+            </select>
+            <input type="text" id="reasonInput" placeholder="Reason for visit">
+            <button type="submit" id="bookBtn">Book Appointment</button>
+            <button type="button" id="cancelEditBtn" class="secondary-btn" hidden>Stop rescheduling</button>
+        </form>
+
+        <h2 class="section-title">My Appointments</h2>
+        <table>
+            <thead>
+                <tr><th>Doctor</th><th>Date</th><th>Time</th><th>Type</th><th>Status</th><th>Notes</th><th>Action</th></tr>
+            </thead>
+            <tbody id="appointmentList"></tbody>
+        </table>
+
+        <h2 class="section-title">My Medical Record</h2>
+        <form id="recordForm" class="add-form">
+            <select id="bloodGroup">
+                <option value="">Blood group</option>
+                <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+            </select>
+            <input type="text" id="allergies" placeholder="Allergies (e.g. Penicillin)">
+            <input type="text" id="conditions" placeholder="Existing conditions (e.g. Diabetes)">
+            <button type="submit">Save Record</button>
+        </form>
+
+        <h2 class="section-title">Our Doctors</h2>
+        <input type="text" id="searchBox" class="search-box" placeholder="Search by name or specialty">
+        <table>
+            <thead>
+                <tr><th></th><th>Name</th><th>Specialty</th><th>Experience</th><th>Fee</th></tr>
+            </thead>
+            <tbody id="doctorList"></tbody>
+        </table>
+
+    </div>
+
+<script src="data.js"></script>
+<script src="user.js"></script>
+</body>
+</html>
